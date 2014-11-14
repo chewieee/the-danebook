@@ -12,7 +12,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3', group: :development
+ gem 'sqlite3', group: :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -45,5 +45,30 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Better Errors and Binding of Caller for debugging in development 
+group :development do
+	gem 'better_errors', '~> 2.0.0'
+	gem 'binding_of_caller', '~> 0.7.2'
+	gem 'jazz_hands', '~> 0.5.2'
+end
+
+# Bootstrap gem
+gem "twitter-bootstrap-rails"
+
+# Paperclip gem for attachments such as photos
+gem 'paperclip'
+
+# AWS for handling media hosting
+gem 'aws-sdk'
+
+# Figaro gem for handling ENV variables
+gem 'figaro', '~> 1.0.0'
+
+# Devise gem for authentication
+gem 'devise'
+
+# Simple forms 
+gem 'simple_form', '~> 3.0.2'
 
 
