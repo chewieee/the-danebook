@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
 	def home
-	
+	  @user = User.new
 	end
 
 	def about
@@ -23,6 +23,5 @@ class StaticPagesController < ApplicationController
 	def friends
 
 	end
-
 
 end

@@ -1,5 +1,5 @@
 		<nav class="navbar navbar-default navbar-homepage" role="navigation">
-	  	 
+	  	 <div class="container">
 	      <div class="navbar-header">
 	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
 	          <span class="sr-only">Toggle navigation</span>
@@ -15,17 +15,23 @@
 	      <div class="navbar-collapse collapse">
 	        <form class="navbar-form navbar-right" role="form">
 	          <div class="form-group">
+	          <%= form_for(:session, url: login_path) do |f| %>
 	            <p>Email</p>
-	            <input type="text" class="custom-form form-control">
+	            <%= f.text_field :email, class: "custom-form form-control" %>
 	          </div>
 	          
 	          <div class="form-group">
 	          	<p>Password</p>
-	            <input type="password" class="custom-form form-control">
-	            <button type="submit" class="btn btn-primary btn-login"><%= link_to "Log In", timeline_path %></button>
+	            <%= f.password_field :password, class: "custom-form form-control" %>
+	            <%= label_tag do %>
+	              Remember me
+	              <%= check_box_tag :remember_me %>
+	            <% end %>
+	            <%= f.submit "Log in", class: "btn btn-primary btn-login" %>
+	          <% end %>
 	          </div>  
 	        </form>
 	      </div><!--/.navbar-collapse -->
-	      
+	     </div> 
 	    </nav><!--/nav -->
   
