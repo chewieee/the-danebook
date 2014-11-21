@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, :length => { in: 6..24 }, :allow_nil => true
 
+  has_many :posts, dependent: :destroy
+
   def generate_token
     begin
       self[:auth_token] = SecureRandom.urlsafe_base64
