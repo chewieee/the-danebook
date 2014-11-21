@@ -21,8 +21,8 @@
 					<input type="text" class="form-control" style="width: 100%;" placeholder="Search for Users">
 				</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="brand-name"><%= link_to "Harry", about_path %></li>
-					<li class="brand-name"><%= link_to "Log out", "#" %></li>
+					<li class="brand-name"><%= link_to current_user.first_name, "#" %></li>
+					<li class="brand-name"><%= link_to "Log out", logout_path, :method => :delete %></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container -->

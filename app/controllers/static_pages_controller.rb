@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-
+  
+  layout 'login'
+  
 	def home
 	  @user = User.new
 	end

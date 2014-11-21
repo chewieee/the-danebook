@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-	
+	before_action :require_login, :except => [:new, :create]
+	before_action :require_current_user, :only => [:edit, :update, :destroy]
+	before_action :skip_login, only: [:new]
+
 	def new
 	end
 
@@ -14,9 +17,9 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			log_in @user
+			sign_in @user
 			flash[:success] = "Thank you for signing up with Danebook!"
-			redirect_to :show
+			redirect_to @user
 		else
 			render 'static_pages/home'
 		end
@@ -26,6 +29,13 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		if current_user.update(whitelisted_user_params)  # <<<<<
+      flash[:success] = "Successfully updated your profile"
+      redirect_to current_user
+    else
+      flash.now[:failure] = "Failed to update your profile"
+      render :edit
+    end
 	end
 
 	def destroy
@@ -37,5 +47,9 @@ class UsersController < ApplicationController
   	params.require(:user).permit(:first_name, :last_name, :email, :password, 
   		                           :password_confirmation, :birth_day, :birth_month,
   		                           :birth_year, :gender)
+  end
+
+  def skip_login
+  	redirect_to current_user if logged_in_user?
   end
 end

@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   root  'static_pages#home'
   
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  resource :session, :only => [:new, :create, :destroy]
+  
+  get    "/login"  => "sessions#new"
+  delete "/logout" => "sessions#destroy"
 
   match '/about',       to: 'static_pages#about',     via: 'get'
   match '/about_edit',  to: 'static_pages#about_edit',via: 'get'

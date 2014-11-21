@@ -1,0 +1,25 @@
+ <div class="container">
+ 	
+	  <header class="header">
+	
+      <div class="top-part">
+      	<%= image_tag "hogwarts_small.jpg", class: "cover-photo" %>
+      	<%= image_tag "harry_potter_small.jpg", class: "user-photo" %>
+      	<p class="user-name"><%= "#{@user.first_name} #{@user.last_name}" %></p>
+      </div>
+	      
+      <div class="row tablist">
+  	  	<ul class ="nav nav-pills" role="tablist">
+  	      <li><%= link_to "Timeline", "#" %></li>
+  	      <li><%= link_to "About", "#" %></li>
+  	      <li><%= link_to "Photos", "#" %></li>
+  	      <li><%= link_to "Friends", "#" %></li>
+          <% if @user == current_user %>
+  	        <li class="navbar-right edit-profile"><%= link_to "Edit Profile", "#" %></li>
+          <% end %>
+  	    </ul>
+      </div>
+	      
+	     
+	  </header> 
+  </div> 	
