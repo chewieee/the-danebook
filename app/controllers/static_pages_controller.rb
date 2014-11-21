@@ -1,14 +1,14 @@
 class StaticPagesController < ApplicationController
   # before_action :skip_login, only: [:home]
   
-  layout 'login'
+  layout 'login', only: [:home]
   
 	def home
 	  @user = User.new
 	end
 
 	def about
-
+    @user = User.find(params[:user_id])
 	end
 
 	def about_edit

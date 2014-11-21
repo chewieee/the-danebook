@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         sign_in(user)
       end
       flash[:success] = "You've successfully signed in"
-      redirect_to root_url
+      redirect_to user
     else
       flash[:error] = "Invalid email/password combination."
       redirect_to root_path

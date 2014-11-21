@@ -11,7 +11,7 @@
       <div class="row tablist">
   	  	<ul class ="nav nav-pills" role="tablist">
   	      <li><%= link_to "Timeline", "#" %></li>
-  	      <li><%= link_to "About", "#" %></li>
+  	      <li><%= link_to "About", user_about_path(@user) %></li>
   	      <li><%= link_to "Photos", "#" %></li>
   	      <li><%= link_to "Friends", "#" %></li>
           <% if @user == current_user %>

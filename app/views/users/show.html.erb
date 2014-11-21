@@ -1,55 +1,104 @@
 <%= render 'shared/header' %>
+ <div class="container">
+ 
   <div class="container">
-	  <section class="sub-header">
-	    <span><strong>About</strong></span>
-	  </section>
-  </div>
-  
-  <div class="container">
-  	<section class="btm-part">
-      <div class="col-md-5">
-  			<h3>Basic Information</h3>
-  			  <div class="col-md-5">
-	  				<ul class="about-info">
-  						<li><strong>Birthday:</strong></li>
-  						<li><strong>College:</strong></li>
-						  <li><strong>Hometown:</strong></li>
-						  <li><strong>Currently Lives:</strong></li>
-					  </ul>
-  				</div><!--/.col-md-6 -->
-  				<div class="col-md-7">
-  				  <ul class="about-info">
-	  				  <li><%= birthday(@user) %></li>
-	  				  <li>Hogwarts College</li>
-	  				  <li>Godrick's Hollow, England</li>
-	  				  <li>Godrick's Hollow, England</li>
-	  		      </ul>
-	  	      </div><!--/.col-md-6 -->
-			<p id="space">-</p> <!-- moves down stubborn contact info section -->
-			<h3 class="contact">Contact Information</h3>
-				<div class="col-md-5">
-  				<ul class="about-info">
-	  				<li><strong>Email:</strong></li>
-	  				<li><strong>Telephone:</strong></li>
-	  			</ul>
-	  		</div><!--/.col-sm-6 -->
-	  		<div class="col-md-7">
-		  		<ul class="about-info">
-			  		<li><%= @user.email %></li>
-			  		<li><%= @user.phone %></li>
-			  	<ul>
-			</div><!--/.col-md-6 -->
-				
-    </div><!--/.col-md-5 -->
-  		
-  		<div class="col-md-7">
-  			<h3>Words to Live By</h3>
-	        <p><%= @user.words %></p>
-	
-        <h3>About Me</h3>
-        <p><%= @user.about_me %></p>
-  		
-      </div><!--/.col-md-7 -->
-      <p id="space">-</p> <!-- adds bottom margin to stubborn btm-part -->
-  	</section>
-  </div><!--/.container -->
+	  <section class="col-md-5 left-section">
+	    <div class="about-box">
+	      <h4>About</h4>
+	    		<ul>
+	    		  <li><strong>Born on:</strong><%= birthday(@user) %></li>
+	    			<li><strong>Went to school at:</strong><%= @user.college %></li>
+	    			<li><strong>Hometown:</strong><%= @user.hometown %></li>
+	    			<li><strong>Currently Lives:</strong><%= @user.currently_lives %></li>
+          </ul>
+      </div><!-- /.about-box -->
+
+      <div class="photos-box">
+        <h4>Photos (123)</h4>
+        <div >
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+        </div><!-- /div-->
+        <div>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+        </div><!-- /div-->
+        <div>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+        </div><!-- /div-->
+        <div>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
+        </div><!-- /div -->
+        <%= link_to "See More Photos", photos_path %>
+      </div><!-- /.photos-box -->
+
+      <div class="friends-box">
+        <h4>Friends (542)</h4>
+        <div>
+          <div class="col-sm-4">
+            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
+            <%= link_to "Name Placeholder", "#" %>
+          </div>
+          <div class="col-sm-4">
+            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
+            <%= link_to "Name Placeholder", "#" %>
+          </div>
+          <div class="col-sm-4">
+            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
+           <%= link_to "Name Placeholder", "#" %>
+          </div>
+        </div>
+        <div>
+          <div class="col-sm-4">
+            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
+            <%= link_to "Name Placeholder", "#" %>
+          </div>
+          <div class="col-sm-4">
+            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
+            <%= link_to "Name Placeholder", "#" %>
+          </div>
+          <div class="col-sm-4">
+            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
+           <%= link_to "Name Placeholder", "#" %>
+          </div>
+        </div>
+        <%= link_to "See More Friends", friends_path %>
+      </div><!-- /.friend-box -->
+    </section><!-- /.left-section -->
+
+	  <section class="col-md-7 right-section">
+		  <div class="post-area">
+		    <h4>Post</h4>
+		    <div class="post-box">
+		      <textarea class="form-control" rows="3" placeholder="Tell the world something..."></textarea>
+		    </div>
+		    <div class="btn-box">
+		      <button class="btn btn-primary btn-post">Post</button>
+		    </div>
+		  </div><!-- /.post-area -->
+	    
+	    <div class="post">
+	      <%= image_tag "user_silhouette_generic.png", class: "user-photo-xs" %>
+	      <div class="post-info">
+	        <%= link_to "Harry Potter", "#" %>
+	        <p>Posted on Thursday 6/1/2014</p>
+	      </div>
+	        <p class="post-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	      <div class="post-links">
+	        <ul>
+	          <li><%= link_to "Like", "#" %></li>
+	          <li><%= link_to "Comment", "#" %></li>
+	          <li><%= link_to "Delete", "#", class: "post-delete-link" %></li>
+	        </ul>
+	      </div>
+	    </div>
+
+	  </section><!-- /.right-section -->
+
+  </div><!-- /.container -->
