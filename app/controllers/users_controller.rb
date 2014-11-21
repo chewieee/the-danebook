@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-	before_action :require_login, :except => [:new, :create]
-	before_action :require_current_user, :only => [:edit, :update, :destroy]
-	before_action :skip_login, only: [:new]
-
+	# before_action :require_login, :except => [:new, :create]
+	# before_action :require_current_user, :only => [:edit, :update, :destroy]
+	
 	def new
 	end
 
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		if current_user.update(whitelisted_user_params)  # <<<<<
+		if current_user.update(user_params)  # <<<<<
       flash[:success] = "Successfully updated your profile"
       redirect_to current_user
     else
@@ -49,7 +48,4 @@ class UsersController < ApplicationController
   		                           :birth_year, :gender)
   end
 
-  def skip_login
-  	redirect_to current_user if logged_in_user?
-  end
 end

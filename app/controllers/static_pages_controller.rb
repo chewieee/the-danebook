@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  # before_action :skip_login, only: [:home]
   
   layout 'login'
   
@@ -25,5 +26,11 @@ class StaticPagesController < ApplicationController
 	def friends
 
 	end
+
+	private
+
+	def skip_login
+  	redirect_to current_user if signed_in_user?
+  end
 
 end

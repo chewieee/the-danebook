@@ -13,18 +13,18 @@
 		</div>
  
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="brand"><%= link_to "Danebook", about_path %></li>
-				</ul>
-				<form class="navbar-form navbar-left searchbar" role="search">
-					<input type="text" class="form-control" style="width: 100%;" placeholder="Search for Users">
-				</form>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="brand-name"><%= link_to current_user.first_name, "#" %></li>
-					<li class="brand-name"><%= link_to "Log out", logout_path, :method => :delete %></li>
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container -->
-	</nav>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="brand"><%= link_to "Danebook", "#" %></li>
+			</ul>
+			<form class="navbar-form navbar-left searchbar" role="search">
+				<input type="text" class="form-control" style="width: 100%;" placeholder="Search for Users">
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="brand-name"><%= link_to current_user.first_name, current_user %></li>
+				<li class="brand-name"><%= link_to "Log out", logout_path, :method => :delete %></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container -->
+</nav>
 

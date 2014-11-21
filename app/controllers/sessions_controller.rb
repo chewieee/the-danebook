@@ -1,17 +1,18 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, :only => [:new, :create]
 
   def create
-    @user = User.find_by_email(params[:email])
-    if @user && @user.authenticate(params[:password])
-
-      # we'll put this logic into a simple helper
-      sign_in(@user)
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      if params[:remember_me] # <<<<<<<
+        permanent_sign_in(user)
+      else
+        sign_in(user)
+      end
       flash[:success] = "You've successfully signed in"
-      redirect_to @user
+      redirect_to root_url
     else
-      flash.now[:error] = "We couldn't sign you in"
-      render :new
+      flash[:error] = "Invalid email/password combination."
+      redirect_to root_path
     end
   end
 
