@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
   has_many :comments
 
   has_many :friendships, foreign_key: "friender_id", dependent: :destroy
-  has_many :friended_users, through: :relationships, source: :friended
+  has_many :friended_users, through: :friendships, source: :friended
   has_many :reverse_friendships, foreign_key: "friended_id", 
                                  class_name: "Friendship", dependent: :destroy
-  has_many :followers, through: :reverse_friendships, source: :friender
+  has_many :frienders, through: :reverse_friendships, source: :friender
 
 
   def newsfeed

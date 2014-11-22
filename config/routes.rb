@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users do
     get 'about' => "static_pages#about"
     resources :posts, only: [:create, :destroy]
+    member do
+      get :friended_users, :frienders
+    end
   end
 
   resources :posts do
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
   end
   
   resources :friendships, only: [:create, :destroy]
-  
+
   resource :session, :only => [:new, :create, :destroy]
   
   get    "/login"  => "sessions#new"

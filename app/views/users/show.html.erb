@@ -39,7 +39,7 @@
       </div><!-- /.photos-box -->
 
       <div class="friends-box">
-        <h4>Friends (542)</h4>
+        <h4>Friends <%= @user.friended_users.count %></h4>
         <div>
           <div class="col-sm-4">
             <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>

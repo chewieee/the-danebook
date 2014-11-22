@@ -6,6 +6,17 @@
       	<%= image_tag "hogwarts_small.jpg", class: "cover-photo" %>
       	<%= image_tag "harry_potter_small.jpg", class: "user-photo" %>
       	<p class="user-name"><%= "#{@user.first_name} #{@user.last_name}" %></p>
+        <span>
+          <% unless @user == current_user %>
+            <div class="friend-btn">
+              <%if current_user.friended?(@user) %>
+                <%= render 'shared/unfriend', user: @user %>
+              <% else %>
+                <%= render 'shared/friend', user: @user %>
+              <% end %>
+            </div>
+          <% end %>
+        </span>
       </div>
 	      
       <div class="row tablist">
