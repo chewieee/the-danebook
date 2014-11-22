@@ -14,7 +14,7 @@
         <li><%= link_to "Like", "#" %></li>
         <li><%= link_to "Comment", "#" %></li>
         <% if @user == current_user %>
-          <li><%= link_to "Delete", post_path(current_user), method: :delete, class: "post-delete-link" %></li>
+          <li><%= link_to "Delete", post, method: :delete, class: "post-delete-link", data: { confirm: "You sure?" } %></li>
         <% end %>
       </ul>
     </div>
