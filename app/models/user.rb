@@ -22,8 +22,6 @@ class User < ActiveRecord::Base
     Post.where("user_id =?", id)
   end  
 
-  private
-
   def generate_token
     begin
       self[:auth_token] = SecureRandom.urlsafe_base64

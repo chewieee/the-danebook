@@ -2,7 +2,7 @@
   <h4>Post</h4>
   
   <div class="post-box">
-    <%= form_for [@post] do |post| %>
+    <%= form_for [current_user, @post] do |post| %>
     
     <%= post.text_area :content, class: "form-control", placeholder: "Tell the world something...", rows: 6 %>
   </div>

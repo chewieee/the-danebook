@@ -51,4 +51,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end 
+
+  def set_return_path
+    session[:return_to] = request.referer
+  end
+  
 end

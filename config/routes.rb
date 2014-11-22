@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'about' => "static_pages#about"
+    resources :posts, only: [:create, :destroy]
   end
 
   resources :posts do
