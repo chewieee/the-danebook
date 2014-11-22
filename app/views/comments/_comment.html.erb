@@ -1,21 +1,18 @@
-<div class="comment">
-          <%= image_tag "user_silhouette_generic.png", class: "user-photo-xs-comment" %>
-          <div class="comment-info">
-            <%= link_to "Harry Potter", "#" %>
-            <span> said on Thursday 5/21/2014</span>
-          </div>
-             <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
-          <div class="comment-links">
-            <ul>
-              <li><%= link_to "Like", "#" %></li>
-              <li>3 other people like this</li>
-              <li><%= link_to "Delete", "#", class: "comment-delete-link" %></li>
-            </ul>
-          </div>
-        </div>
 
-        <div class="comment-form">
-          <textarea class="form-control" rows="3" placeholder="Write a comment..."></textarea>
-          <%= link_to "Comment", "#", class: "btn btn-primary comment-btn" %>
-        </div>
-      </div>
+  <%= image_tag "user_silhouette_generic.png", class: "user-photo-xs-comment" %>
+  <div class="comment-info">
+    <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", user_path(comment.user) %>
+    <span> said on <%=comment.created_at.strftime("%d-%m-%Y") %></span>
+  </div>
+     <p class="comment-text"><%= comment.content %></p>
+  <div class="comment-links">
+    <ul>
+      <li><%= link_to "Like", "#" %></li>
+      <li>3 other people like this</li>
+      <li><%= link_to "Delete", "#", class: "comment-delete-link" %></li>
+    </ul>
+  </div>
+
+
+
+     

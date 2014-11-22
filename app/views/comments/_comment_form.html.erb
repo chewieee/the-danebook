@@ -1,0 +1,11 @@
+<div class="comment-form">
+  <%= form_for [post, post.comments.build] do |f| %>
+    <%= f.text_area :content, class: "form-control", rows: 3, placeholder: "Write a comment..." %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Comment", class: "btn btn-primary comment-btn" %>
+  <% end %>
+</div>
+
+
+
+<!-- link_to "Comment", [:new, post, :comment], class: "btn btn-primary comment-btn" -->

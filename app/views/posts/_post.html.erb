@@ -18,5 +18,19 @@
         <% end %>
       </ul>
     </div>
+
+    <div class="post-like-field">
+      <p>You and Hermoine Granger and 3 others like this</p>
+    </div>
+    <div class="comment">
+      <% if post.comments.any? %>
+        <ol class="comments">
+          <% post.comments.each do |comment| %>
+            <%= render 'comments/comment', comment: comment %>
+        </ol>
+         <% end %>
+      <% end %>  
+      <%= render 'comments/comment_form', post: post %>
+    </div>
   </div>
 </li>

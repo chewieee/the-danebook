@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     get 'about' => "static_pages#about"
   end
 
-  resources :posts, only: [:create, :destroy] 
+  resources :posts do
+    resources :comments, :defaults => { :commentable => 'Post' }
+  end
   
   resource :session, :only => [:new, :create, :destroy]
   
