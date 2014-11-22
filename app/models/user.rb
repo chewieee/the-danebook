@@ -13,10 +13,15 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, :length => { in: 6..24 }, :allow_nil => true
   
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments
 
-  has_many :posts, dependent: :destroy
+  has_many :friendships, foreign_key: "friender_id", dependent: :destroy
+  has_many :friended_users, through: :relationships, source: :friended
+  has_many :reverse_friendships, foreign_key: "friended_id", 
+                                 class_name: "Friendship", dependent: :destroy
+  has_many :followers, through: :reverse_friendships, source: :friender
+
 
   def newsfeed
     Post.where("user_id =?", id)
@@ -33,4 +38,17 @@ class User < ActiveRecord::Base
     generate_token
     save!
   end
+
+  def friended?(other_user)
+    friendships.find_by_friended_id(other_user.id)
+  end
+
+  def friend!(other_user)
+    friendships.create!(friended_id: other_user.id)
+  end
+
+  def unfriend!(other_user)
+    friendships.find_by_friended_id(other_user.id).destroy
+  end
+
 end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :comments, :defaults => { :commentable => 'Post' }
   end
   
+  resources :friendships, only: [:create, :destroy]
+  
   resource :session, :only => [:new, :create, :destroy]
   
   get    "/login"  => "sessions#new"
