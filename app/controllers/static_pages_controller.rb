@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   
 	def home
 	  @user = User.new
+	  @feed_items = current_user.newsfeed
 	end
 
 	def about

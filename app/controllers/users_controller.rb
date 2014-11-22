@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	# before_action :require_login, :except => [:new, :create]
-	# before_action :require_current_user, :only => [:edit, :update, :destroy]
+	before_action :require_login, :except => [:new, :create]
+	before_action :require_current_user, :only => [:edit, :update, :destroy]
 	
 	def new
 	end
@@ -10,7 +10,9 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user  = User.find(params[:id])
+		@posts = @user.posts.chronological
+		@post  = current_user.posts.build if signed_in_user?
 	end
 
 	def create

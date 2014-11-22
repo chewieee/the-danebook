@@ -1,3 +1,9 @@
+<% if current_user %>
+  <%= render 'shared/navbar' %>
+  <%= render 'shared/newsfeed' %>
+
+<% else %>
+
 <%= render 'users/login_nav' %>	    
 
 <main class="container">
@@ -11,3 +17,5 @@
 	<%= render 'users/signup_form' %>
 		
 </main>
+
+<% end %>

@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
+  def newsfeed
+    Post.where("user_id =?", id)
+  end  
+
+  private
+
   def generate_token
     begin
       self[:auth_token] = SecureRandom.urlsafe_base64
@@ -26,5 +32,4 @@ class User < ActiveRecord::Base
     generate_token
     save!
   end
-
 end

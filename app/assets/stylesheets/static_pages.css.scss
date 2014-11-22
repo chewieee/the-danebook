@@ -261,6 +261,14 @@ div:hover span.text-content {
 	position: relative;
 }
 
+.posts {
+	list-style: none;
+	padding: 0;
+	li {
+		margin-bottom: 15px;
+	}
+}
+
 .post-area {
 	text-align: right;
 }
