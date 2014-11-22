@@ -316,4 +316,67 @@ div:hover span.text-content {
 	margin-left: 320px;
 }
 
+.post-like-field {
+	padding-left: 35px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #e9eaed;
+}
+
+/* Comment Syles */
+
+.comment {
+	position: relative;
+	background-color: #e9eaed;
+}
+
+.comment-info {
+	position: absolute;
+	left: 100px;
+}
+
+.comment-text {
+	margin-left: 90px;
+	padding: 20px 10px 0 10px;
+}
+
+.user-photo-xs-comment {
+	height: 75px;
+	width: 75px;
+	position: absolute;
+	top: 0px;
+	left: 10px;
+}
+
+.comment-links {
+	background-color: #e9eaed;
+}
+
+.comment-links ul {
+	margin-bottom: 0;
+	padding: 5px;
+}
+
+.comment-links li{
+	list-style-type: none;
+	display: inline;
+	font-size: 1.1em;
+	margin-left: 95px;
+	margin-bottom: 0;
+}
+
+.comment-delete-link {
+	margin-left: 45px;
+}
+
+.comment-form {
+  height: 130px;
+  padding-top: 20px;
+  background-color: #e9eaed;
+}
+
+.comment-btn {
+	float: right;
+	margin: 10px 20px 0 0;
+}
 

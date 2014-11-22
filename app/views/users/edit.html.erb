@@ -1,0 +1,64 @@
+  <%= render 'shared/header' %>
+  <div class="container">
+	  <section class="sub-header">
+	    <span><strong>Edit Profile</strong></span>
+	  </section>
+  </div>
+
+  <div class="container">
+	  <section class="btm-part"> <!-- should be styled to have black border around everything -->
+		  <div class="col-md-5">
+			  <h3>Basic Information</h3>
+
+			  <%= form_for @user do |user| %>
+
+
+				  <div class="col-md-5">
+  				  <ul class="about-info">
+						  <li><strong>Birthday:</strong></li>
+						  <li class="edit-info"><strong>College:</strong></li>
+						  <li class="edit-info"><strong>Hometown:</strong></li>
+						  <li class="edit-info"><strong>Currently Lives:</strong></li>
+					  </ul>
+				  </div><!--/.col-md-6 -->
+				  <div class="col-md-7">
+  				  <ul class="about-info">
+	  				  <li><%= birthday(@user) %></li>
+	  				  <li class="form-group"><%= user.text_field :college, class: "custom-form form-control" %></li>
+	  				  <li class="form-group"><%= user.text_field :hometown, class: "custom-form form-control" %></li>
+	  				  <li class="form-group"><%= user.text_field :currently_lives, class: "custom-form form-control" %></li>
+	  		    </ul>
+	  	    </div><!--/.col-md-6 -->
+			<p id="space">-</p> <!-- moves down stubborn contact info section -->
+			<h3 class="contact">Contact Information</h3>
+				<div class="col-md-5">
+  				<ul class="about-info">
+	  				<li><strong>Email:</strong></li>
+	  				<li><strong>Telephone:</strong></li>
+	  			</ul>
+	  		</div><!--/.col-md-5 -->
+	  		<div class="col-md-7">
+		  		<ul class="about-info">
+			  		<li><%= @user.email %></li>
+			  		 <li class="form-group"><%= user.text_field :phone, class: "custom-form form-control" %></li>
+			  	</ul>
+			</div><!--/.col-md-7 -->
+				
+		</div><!--/.col-md-5 -->
+  		
+  		<div class="col-md-7">
+  			<h3>Words to Live By</h3>
+	      <%= user.text_area :words, class: "custom-form form-control" %>
+	
+        <h3>About Me</h3>
+        <%= user.text_area :about_me, class: "custom-form form-control" %>
+  		
+      </div><!--/.col-md-7 -->
+  	</section>
+  </div><!--/.container -->
+
+  <div class="container">
+    <%= user.submit "Save Changes", class: "btn btn-primary save-btn" %>
+  </div>
+
+<% end %>

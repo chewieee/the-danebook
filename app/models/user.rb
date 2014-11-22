@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, :length => { in: 6..24 }, :allow_nil => true
+  
+  has_many :posts
+  has_many :comments
 
   def generate_token
     begin
