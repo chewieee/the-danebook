@@ -1,0 +1,8 @@
+<div class="col-md-5 friend-box">
+  <%= image_tag "user_silhouette_generic.png", class: "user-photo-small" %>
+  <div class="friend-info">
+    <%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend) %>
+    <p><%= pluralize(friend.friended_users.count, 'friend') %></p>
+  </div>
+  <button class="btn btn-primary btn-unfriend">Unfriend Me</button>
+</div><!-- /.friend-box -->

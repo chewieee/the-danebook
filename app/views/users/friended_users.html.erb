@@ -1,0 +1,23 @@
+<%= render 'shared/header' %>
+
+<div class="container">
+	<section class="sub-header">
+	  <span><strong>Friends</strong></span>
+	</section>
+</div>
+
+<div class="container">
+  <div class="col-md-12">
+	  <% if @user.friended_users.any? %>
+	    <% @friends.each do |friend| %>
+	      <%= render 'friendships/friend', friend: friend %>
+	    <% end %>
+	  <% end %>
+	</div>
+</div>
+
+ 
+   
+  
+    
+  

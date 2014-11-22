@@ -46,6 +46,11 @@ class UsersController < ApplicationController
 	def destroy
 	end
 
+	def friended_users
+		@user    = User.find(params[:id])
+		@friends = @user.friended_users
+	end
+
   private
 
   def user_params
