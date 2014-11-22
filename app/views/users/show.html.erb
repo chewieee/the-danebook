@@ -6,10 +6,10 @@
 	    <div class="about-box">
 	      <h4>About</h4>
 	    		<ul>
-	    		  <li><strong>Born on:</strong><%= birthday(@user) %></li>
+	    		  <li><strong>Born on:</strong> <%= birthday(@user) %></li>
 	    			<li><strong>Went to school at:</strong><%= @user.college %></li>
-	    			<li><strong>Hometown:</strong><%= @user.hometown %></li>
-	    			<li><strong>Currently Lives:</strong><%= @user.currently_lives %></li>
+	    			<li><strong>Hometown:</strong> <%= @user.hometown %></li>
+	    			<li><strong>Currently Lives:</strong> <%= @user.currently_lives %></li>
           </ul>
       </div><!-- /.about-box -->
 
@@ -73,31 +73,16 @@
     </section><!-- /.left-section -->
 
 	  <section class="col-md-7 right-section">
-		  <div class="post-area">
-		    <h4>Post</h4>
-		    <div class="post-box">
-		      <textarea class="form-control" rows="3" placeholder="Tell the world something..."></textarea>
-		    </div>
-		    <div class="btn-box">
-		      <button class="btn btn-primary btn-post">Post</button>
-		    </div>
-		  </div><!-- /.post-area -->
+
+	    <% if @user == current_user %>
+		    <%= render 'posts/post_form' %>
+	    <% end %>
 	    
-	    <div class="post">
-	      <%= image_tag "user_silhouette_generic.png", class: "user-photo-xs" %>
-	      <div class="post-info">
-	        <%= link_to "Harry Potter", "#" %>
-	        <p>Posted on Thursday 6/1/2014</p>
-	      </div>
-	        <p class="post-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	      <div class="post-links">
-	        <ul>
-	          <li><%= link_to "Like", "#" %></li>
-	          <li><%= link_to "Comment", "#" %></li>
-	          <li><%= link_to "Delete", "#", class: "post-delete-link" %></li>
-	        </ul>
-	      </div>
-	    </div>
+	    <% if @user.posts.any? %>
+	      <ol class="posts">
+	        <%= render @posts %>
+	      </ol>
+	    <% end %>
 
 	  </section><!-- /.right-section -->
 

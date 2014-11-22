@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root  'static_pages#home'
+
   resources :users do
     get 'about' => "static_pages#about"
   end
 
-  root  'static_pages#home'
+  resources :posts, only: [:create, :destroy] 
   
   resource :session, :only => [:new, :create, :destroy]
   

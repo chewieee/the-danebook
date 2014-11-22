@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	# before_action :require_login, :except => [:new, :create]
-	# before_action :require_current_user, :only => [:edit, :update, :destroy]
+	before_action :require_login, :except => [:new, :create]
+	before_action :require_current_user, :only => [:edit, :update, :destroy]
 	
 	def new
 	end
@@ -10,7 +10,9 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user  = User.find(params[:id])
+		@posts = @user.posts.chronological
+		@post  = current_user.posts.build if signed_in_user?
 	end
 
 	def create
@@ -25,12 +27,15 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def update
-		if current_user.update(user_params)  # <<<<<
+		@user = current_user
+
+		if @user.update(user_params)  # <<<<<
       flash[:success] = "Successfully updated your profile"
-      redirect_to current_user
+      redirect_to user_about_path(@user)
     else
       flash.now[:failure] = "Failed to update your profile"
       render :edit
@@ -45,7 +50,7 @@ class UsersController < ApplicationController
   def user_params
   	params.require(:user).permit(:first_name, :last_name, :email, :password, 
   		                           :password_confirmation, :birth_day, :birth_month,
-  		                           :birth_year, :gender)
+  		                           :birth_year, :gender, :words, :about_me, :phone)
   end
 
 end
