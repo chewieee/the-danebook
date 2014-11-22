@@ -39,36 +39,16 @@
       </div><!-- /.photos-box -->
 
       <div class="friends-box">
-        <h4>Friends <%= @user.friended_users.count %></h4>
-        <div>
-          <div class="col-sm-4">
-            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
-            <%= link_to "Name Placeholder", "#" %>
-          </div>
-          <div class="col-sm-4">
-            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
-            <%= link_to "Name Placeholder", "#" %>
-          </div>
-          <div class="col-sm-4">
-            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
-           <%= link_to "Name Placeholder", "#" %>
-          </div>
+        <h4>Friends (<%= @user.friended_users.count %>)</h4>
+        <div class="col-md-12">
+          <% if @user.friended_users.any? %>
+            <% @friends.each do |friend| %>
+              <%= render 'friendships/show_friend', friend: friend %>
+            <% end %>
+          <% end %>
         </div>
-        <div>
-          <div class="col-sm-4">
-            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
-            <%= link_to "Name Placeholder", "#" %>
-          </div>
-          <div class="col-sm-4">
-            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
-            <%= link_to "Name Placeholder", "#" %>
-          </div>
-          <div class="col-sm-4">
-            <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
-           <%= link_to "Name Placeholder", "#" %>
-          </div>
-        </div>
-        <%= link_to "See More Friends", friends_path %>
+          <%= link_to "See More Friends", friends_path %>
+
       </div><!-- /.friend-box -->
     </section><!-- /.left-section -->
 

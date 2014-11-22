@@ -10,9 +10,9 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user  = User.find(params[:id])
-		@posts = @user.posts.chronological
-		@post  = current_user.posts.build if signed_in_user?
+		@user    = User.find(params[:id])
+		@posts   = @user.posts.chronological
+		@post    = current_user.posts.build if signed_in_user?
 		@friends = @user.friended_users.limit(6)
 	end
 
