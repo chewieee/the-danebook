@@ -24,7 +24,7 @@
   	      <li><%= link_to "Timeline", user_path(@user) %></li>
   	      <li><%= link_to "About", user_about_path(@user) %></li>
   	      <li><%= link_to "Photos", "#" %></li>
-  	      <li><%= link_to "Friends", "#" %></li>
+  	      <li><%= link_to "Friends", friended_users_user_path(@user) %></li>
           <% if @user == current_user %>
   	        <li class="navbar-right edit-profile"><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
           <% end %>

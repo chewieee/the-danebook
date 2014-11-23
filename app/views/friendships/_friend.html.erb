@@ -4,5 +4,7 @@
     <%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend) %>
     <p><%= pluralize(friend.friended_users.count, 'friend') %></p>
   </div>
-  <button class="btn btn-primary btn-unfriend">Unfriend Me</button>
+  <%= form_for(current_user.friendships.find_by_friended_id(friend), 
+             html: { method: :delete }) do |f| %>
+  <%= f.submit "Unfriend", class: "btn btn-primary btn-unfriend" %> <% end %>
 </div><!-- /.friend-box -->
