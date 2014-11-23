@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   
   has_many :posts, dependent: :destroy
   has_many :comments
+  has_many :photos 
 
   has_many :friendships, foreign_key: "friender_id", dependent: :destroy
   has_many :friended_users, through: :friendships, source: :friended
@@ -22,6 +23,8 @@ class User < ActiveRecord::Base
                                  class_name: "Friendship", dependent: :destroy
   has_many :frienders, through: :reverse_friendships, source: :friender
 
+  belongs_to :profile_photo, class_name: "Photo"
+  belongs_to :cover_photo, class_name: "Photo"
 
   def newsfeed
     Post.where("user_id =?", id)
