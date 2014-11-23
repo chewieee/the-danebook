@@ -1,0 +1,25 @@
+      
+  <div class="container">
+ 	
+    <%= render 'shared/header' %>
+	
+  <div class="container">
+	  <section class="sub-header">
+	    <span><strong>Photos</strong></span>
+	    <%= link_to "Add Photo", new_user_photo_path(@user), class: "btn btn-primary right-btn" %>
+	  </section>
+  </div>
+
+  <section class="container">
+   
+    <% if @user.photos.any? %>
+      <% @user.photos.each do |photo| %>
+
+        <%= render 'shared/photo', photo: photo %>
+
+      <% end %>
+    <% end %>
+   
+
+  </section><!-- /.container -->
+

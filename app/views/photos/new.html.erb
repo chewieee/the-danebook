@@ -1,0 +1,34 @@
+      
+  <div class="container">
+ 	
+    <%= render 'shared/header' %>
+	
+  <div class="container">
+	  <section class="sub-header">
+	    <span><strong>Photos</strong></span>
+	  </section>
+  </div>
+
+  <section class="container">
+
+
+    <%= form_for [@user, @photo], class: "form-horizontal" do |f| %>
+      <div class="form-group col-md-12">
+        <%= f.label :url, "Paste the url to a photo from the web..." %>
+        <%= f.text_field :url, placeholder: "http://example.com/photo1.jpg", class: "form-control" %>
+        <%= f.submit "User Web Photo", class: "btn btn-success" %>
+      </div>
+
+      <h3>or... </h3>
+
+      <div class="form-group col-md-12">
+        <%= f.label :image, "Select a photo from your computer..." %>
+        <%= f.file_field :image, class: "form-control" %>
+
+        <%= f.submit "Upload Photo", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+   
+
+  </section><!-- /.container -->
+

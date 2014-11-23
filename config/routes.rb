@@ -3,10 +3,14 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'about' => "static_pages#about"
+    
     resources :posts, only: [:create, :destroy]
+    
     member do
-      get :friended_users, :frienders
+      get :friended_users # :frienders no need for this route, for reference
     end
+
+    resources :photos
   end
 
   resources :posts do
