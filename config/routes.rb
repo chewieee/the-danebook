@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get    "/login"  => "sessions#new"
   delete "/logout" => "sessions#destroy"
 
-  match '/about',   to: 'static_pages#about',     via: 'get'
+  match '/about',       to: 'static_pages#about',     via: 'get'
   match '/about_edit',  to: 'static_pages#about_edit',via: 'get'
   match '/photos',      to: 'static_pages#photos',    via: 'get'
   match '/timeline',    to: 'static_pages#timeline',  via: 'get'

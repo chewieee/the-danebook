@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
 		@commentable  = klass.find(params[commentable_id])
 		@comment      = @commentable.comments.build(comment_params)
+		# sets the user for the comment to make association
     @comment.user = current_user
 
 		if @comment.save
