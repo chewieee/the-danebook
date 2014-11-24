@@ -1,0 +1,19 @@
+<div class="comment">
+  <div class="col-md-2">
+    <%= image_tag "user_silhouette_generic.png", size: "30x30", class: "photo-comment-thumb" %> 
+  </div>
+
+  <div class="col-md-10">
+    <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", user_path(comment.user) %>
+    <%= "said on #{comment.created_at.strftime("%B %d, %Y")}" %>
+  </div>
+
+  <div class="col-md-12">
+    <%= comment.content %>
+  </div>
+
+  <div class="col-md-12">
+    <p><%= link_to "Like", "#" %> 3 people like this</p>
+  </div>
+
+</div>

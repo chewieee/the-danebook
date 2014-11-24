@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, :defaults => { :commentable => 'Post' }
   end
+
+  resources :photos do
+    resources :comments, :defaults => { :commentable => 'Photo' }
+  end
   
   resources :friendships, only: [:create, :destroy]
 

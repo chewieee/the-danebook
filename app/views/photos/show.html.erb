@@ -1,0 +1,63 @@
+
+ 	<%= render 'shared/header' %>
+	
+	<div class="container">
+		<section class="sub-header">
+		  <span><strong>Photos</strong></span>
+		</section>
+	</div>
+
+
+<div class="container">
+  <div class="col-md-7 show-photo">
+  
+  <div class="col-md-12">
+    <%= image_tag @photo.image.url(:large) %>
+  </div>
+
+  <% if @user == current_user %>
+	  <div class="col-md-12">
+	    <ul class="photo-links">
+	      <li><%= link_to "Set as Profile", "#" %></li>
+	      <li><%= link_to "Set as Cover", "#" %></li>
+	      <li><%= link_to "delete photo", "#" %></li>
+	    </ul>
+	  </div>
+	<% end %>
+</div>
+
+
+<div class="col-md-4">
+  <div class="col-md-2">
+    <%= image_tag "user_silhouette_generic.png", size: "50x50" %> 
+  </div>
+  <div class="col-md-10">
+    <p><%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></p>
+    <p><%= "Uploaded on #{@photo.created_at.strftime("%B %d, %Y")}" %></p>
+  </div>
+  
+  <div class="col-md-12">
+    <p><%= link_to "Like", "#" %> 3 people like this.</p>
+  </div>
+
+  <div class="col-md-12">
+	  <%= form_for [@photo, @photo.comments.build] do |f| %>
+	    <%= f.text_area :content, class: "form-control", rows: 3, placeholder: "Write a comment..." %>
+	    <%= f.hidden_field :user_id, :value => current_user.id %>
+	    <%= f.submit "Comment", class: "btn btn-primary comment-btn" %>
+	  <% end %>
+  </div>
+
+  <% if @photo.comments.any? %>
+    <div class="col-md-12">  
+      <% @photo.comments.each do |comment| %>
+        <%= render 'photos/comment', comment: comment %>
+      <% end %>
+    </div>
+  <% end %>
+ 
+
+</div>
+
+
+</ul>

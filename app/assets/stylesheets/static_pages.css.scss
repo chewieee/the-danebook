@@ -158,8 +158,13 @@ color: #fff;
 .photo {
 	text-align: center;
 	height: 250px;
-	margin-bottom: 20px;
+	width: 300px;
+	margin: 0 5px 20px 5px;
 	position: relative;
+}
+
+.show-photo {
+	margin: 20px;
 }
 
 span.text-content {

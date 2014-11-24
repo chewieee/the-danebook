@@ -24,11 +24,19 @@ class PhotosController < ApplicationController
     	render :new
     end
 	end
-
+  
+  def show
+  	@user  = User.find(params[:user_id])
+  	@photo = Photo.find(params[:id])
+  end
 
 	def index
 		@user = User.find(params[:user_id])
 		@photos = @user.photos
+	end
+
+	def destroy
+
 	end
 
 	private
