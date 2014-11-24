@@ -28,6 +28,17 @@
 
 
 <div class="col-md-4">
+
+
+
+    
+	
+
+
+    
+
+
+
   <div class="col-md-2">
     <%= image_tag "user_silhouette_generic.png", size: "50x50" %> 
   </div>
@@ -40,6 +51,16 @@
     <p><%= link_to "Like", "#" %> 3 people like this.</p>
   </div>
 
+
+  <% if @photo.comments.any? %>
+    <div class="col-md-12">
+      <% @photo.comments.each do |comment| %> 
+        <%= render 'photos/comment', comment: comment %>
+      <% end %>
+    </div>
+  <% end %>
+
+
   <div class="col-md-12">
 	  <%= form_for [@photo, @photo.comments.build] do |f| %>
 	    <%= f.text_area :content, class: "form-control", rows: 3, placeholder: "Write a comment..." %>
@@ -48,16 +69,12 @@
 	  <% end %>
   </div>
 
-  <% if @photo.comments.any? %>
-    <div class="col-md-12">  
-      <% @photo.comments.each do |comment| %>
-        <%= render 'photos/comment', comment: comment %>
-      <% end %>
-    </div>
-  <% end %>
- 
+
 
 </div>
+ 
+ 
+
 
 
 </ul>
