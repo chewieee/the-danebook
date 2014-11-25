@@ -1,0 +1,10 @@
+<div class="col-md-5 friend-box">
+  <%= profile_photo(user, :thumb) %>
+  <div class="friend-info">
+    <%= link_to user.name, user_path(user) %>
+    <p><%= pluralize(user.friended_users.count, 'friend') %></p>
+  </div>
+  <%= form_for(current_user.friendships.find_by_friended_id(user), 
+             html: { method: :delete }) do |f| %>
+  <%= f.submit "Unfriend", class: "btn btn-primary btn-unfriend" %> <% end %>
+</div><!-- /.friend-box -->

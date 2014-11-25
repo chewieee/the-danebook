@@ -66,5 +66,13 @@ class User < ActiveRecord::Base
   def unlike(likable)
     likes.find_by_likable_id(likable.id)
   end
+
+  def self.search(query)
+    if query
+      where("first_name LIKE ?", "%#{query}%")
+    else
+      where("")
+    end
+  end
   
 end

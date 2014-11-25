@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		# action saved for search function implementation
+		@user  = current_user
+		@users = User.search(params[:query])
 	end
 
 	def show

@@ -1,0 +1,19 @@
+<%= render 'shared/header' %>
+
+<div class="container">
+	<section class="sub-header">
+	  <span><strong>Search Results</strong></span>
+	</section>
+</div>
+
+<div class="container">
+  <div class="col-md-12">
+	  <% if @users.any? %>
+	    <% @users.each do |user| %>
+	      <%= render 'users/search_result', user: user %>
+	    <% end %>
+	  <% else %>
+	    <p class="no-results">No Results</p>
+	  <% end %>
+	</div>
+</div>
