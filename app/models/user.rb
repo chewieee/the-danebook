@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments
   has_many :photos 
+  has_many :likes
 
   has_many :friendships, foreign_key: "friender_id", dependent: :destroy
   has_many :friended_users, through: :friendships, source: :friended

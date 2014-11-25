@@ -15,10 +15,16 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, :defaults => { :commentable => 'Post' }
+    resources :likes, :defaults => { :likable => 'Photo' }
   end
 
   resources :photos do
     resources :comments, :defaults => { :commentable => 'Photo' }
+    resources :likes, :defaults => { :likable => 'Photo' }
+  end
+
+  resources :comments do
+    resources :likes, :defaults => { :likable => 'Comment' }
   end
   
   resources :friendships, only: [:create, :destroy]
