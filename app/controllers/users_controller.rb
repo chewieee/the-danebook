@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 		@posts   = @user.posts.chronological
 		@post    = current_user.posts.build if signed_in_user?
 		@friends = @user.friended_users.limit(6)
+		@photos  = @user.photos
 	end
 
 	def create

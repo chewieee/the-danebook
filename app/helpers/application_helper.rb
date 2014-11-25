@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def profile_photo(user)
-		if user && user.profile_photo_id
+		if user && user.profile_photo_id 
 			image_tag user.profile_photo.image.url(:medium), class: "user-photo"
 		else
 			image_tag "user_silhouette_generic.png", class: "user-photo"
@@ -16,4 +16,13 @@ module ApplicationHelper
 		end
 	end
 
+	def photo_link(user, size)
+		if user.profile_photo_id
+		  image_tag user.profile_photo.image.url(size)
+		else
+		  image_tag "user_silhouette_thumb.png" 
+		end
+	end
+
+  
 end

@@ -14,28 +14,18 @@
       </div><!-- /.about-box -->
 
       <div class="photos-box">
-        <h4>Photos (123)</h4>
-        <div >
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-        </div><!-- /div-->
-        <div>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-        </div><!-- /div-->
-        <div>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-        </div><!-- /div-->
-        <div>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-          <%= link_to image_tag("icon_photo_small.png", class: "photo-small col-sm-4"), "#" %>
-        </div><!-- /div -->
+        <h4> Photos (<%= @user.photos.count %>)</h4>
+
+        <% if @user.photos.any? %>
+          <div class="col-md-12" %>
+            <% @user.photos.each do |photo| %>
+              <%= render 'photos/photo_show_thumb', photo: photo %>
+            <% end %>
+          </div>
+        <% end %>
+
         <%= link_to "See More Photos", photos_path %>
+
       </div><!-- /.photos-box -->
 
       <div class="friends-box">

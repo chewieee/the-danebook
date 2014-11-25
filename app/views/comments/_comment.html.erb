@@ -1,8 +1,8 @@
   <div class="comment">
-    <%= image_tag "user_silhouette_generic.png", class: "user-photo-xs-comment" %>
+    <%= photo_link(comment.user, :xs) %>
     <div class="comment-info">
-      <%= link_to "#{comment.user.first_name} #{comment.user.last_name}", user_path(comment.user) %>
-      <span> said on <%=comment.created_at.strftime("%d-%m-%Y") %></span>
+      <%= link_to comment.user.name, user_path(comment.user) %>
+      <span> said on <%=comment.created_at.strftime("%B-%d-%Y") %></span>
     </div>
     <p class="comment-text"><%= comment.content %></p>
     <div class="comment-links">

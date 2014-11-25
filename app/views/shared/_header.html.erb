@@ -5,7 +5,7 @@
       <div class="top-part">
       	<%= cover_photo(@user) %>
       	<%= profile_photo(@user) %>
-      	<p class="user-name"><%= "#{@user.first_name} #{@user.last_name}" %></p>
+      	<p class="user-name"><%= @user.name %></p>
         <span>
           <% unless @user == current_user %>
             <div class="friend-btn">

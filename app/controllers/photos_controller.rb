@@ -37,6 +37,14 @@ class PhotosController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @photo = @user.photos.find(params[:id])
+
+    if @user.profile_photo_id == @photo.id
+      @user.profile_photo_id = nil
+      @user.save
+    elsif @user.cover_photo_id == @photo.id
+      @user.cover_photo_id = nil
+      @user.save
+    end
     
     if @photo.destroy
       flash[:success] = "Photo deleted."

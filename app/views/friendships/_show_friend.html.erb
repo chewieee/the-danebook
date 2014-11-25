@@ -1,4 +1,8 @@
-<div class="col-sm-4">
-  <%= image_tag "user_silhouette_generic.png", class: "friend-box-photo" %>
-  <%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend) %>
+<div class="col-md-4">
+  <div class="col-md-12">
+  <%= photo_link(friend, :thumb) %>
+  </div>
+  <div class="col-md-12">
+  <%= link_to friend.name, user_path(friend) %>
+  </div>
 </div>

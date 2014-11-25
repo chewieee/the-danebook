@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments, :as => :commentable, dependent: :destroy
 
-	has_attached_file :image, :styles => { :large => "500x500", :medium => "230x315", :thumb => "75x75" }
+	has_attached_file :image, :styles => { :large => "500x500", :medium => "230x315", :thumb => "75x75", :xs => "50x50" }
   
   has_one :profile_photo_user, foreign_key: :profile_photo_id, :class_name => "User"
   has_one :cover_photo_user, foreign_key: :cover_photo_id, :class_name => "User"

@@ -53,5 +53,9 @@ class User < ActiveRecord::Base
   def unfriend!(other_user)
     friendships.find_by_friended_id(other_user.id).destroy
   end
-
+  
+  def name
+    "#{first_name} #{last_name}"
+  end
+  
 end
