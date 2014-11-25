@@ -58,5 +58,13 @@ class User < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
+
+  def likes?(likable)
+    likes.find_by_likable_id(likable.id)
+  end
+
+  def unlike(likable)
+    likes.find_by_likable_id(likable.id)
+  end
   
 end

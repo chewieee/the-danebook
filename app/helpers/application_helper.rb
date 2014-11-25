@@ -23,6 +23,9 @@ module ApplicationHelper
 		  image_tag "user_silhouette_thumb.png" 
 		end
 	end
+	# REDUNDANT, GET RID OF PHOTO_LINK METHOD AND ADD SIZE TO PROFILE_PHOTO METHOD
+
+	# START WITH FIGURING OUT HOW TO UNLIKE SOMETHING ON THE POST FORM
 
   
 end

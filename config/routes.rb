@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, :defaults => { :commentable => 'Post' }
-    resources :likes, :defaults => { :likable => 'Photo' }
+    resources :likes, :defaults => { :likable => 'Post' }
   end
 
   resources :photos do

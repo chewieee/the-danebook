@@ -11,18 +11,24 @@
     
     <div class="post-links">
       <ul>
-        <li><%= link_to "Like", "#" %></li>
-        <li><%= link_to "Comment", "#" %></li>
-        <% if @user == current_user %>
-          <li><%= link_to "Delete", post, method: :delete, class: "post-delete-link", data: { confirm: "You sure?" } %></li>
+        <% if current_user.likes?(post) %>
+          <li> <%=link_to "Unlike", [post, current_user.unlike(post)], method: 'DELETE' %>
+        <% else %>
+          <li> <%= link_to "Like", post_likes_path(post), method: 'POST' %></li>
         <% end %>
+          <li><%= link_to "Comment", "#" %></li>
+          <% if @user == current_user %>
+            <li><%= link_to "Delete", post, method: :delete, class: "post-delete-link", data: { confirm: "You sure?" } %></li>
+          <% end %>
       </ul>
     </div>
-
-    <div class="post-like-field">
-      <p>You and Hermoine Granger and 3 others like this</p>
-    </div>
     
+    <% if post.likes.any? %>
+      <div class="post-like-field">
+        <%= pluralize(post.likes.count, "Like") %>
+      </div>
+    <% end %>
+
       <% if post.comments.any? %>
         
           <% post.comments.each do |comment| %>

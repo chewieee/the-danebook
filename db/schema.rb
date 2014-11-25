@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20141125064252) do
     t.datetime "updated_at"
   end
 
+  add_index "likes", ["likable_type", "likable_id"], name: "index_likes_on_likable_type_and_likable_id"
+
   create_table "photos", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
