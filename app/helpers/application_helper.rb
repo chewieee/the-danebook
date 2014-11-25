@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-	def profile_photo(user)
+	def profile_photo(user, size)
 		if user && user.profile_photo_id 
-			image_tag user.profile_photo.image.url(:medium), class: "user-photo"
+			image_tag user.profile_photo.image.url(size)
 		else
-			image_tag "user_silhouette_generic.png", class: "user-photo"
+			image_tag "user_silhouette_#{size.to_s}.png"
 		end
 	end
 
@@ -15,17 +15,5 @@ module ApplicationHelper
 			image_tag "hogwarts_small.jpg", class: "cover-photo"
 		end
 	end
-
-	def photo_link(user, size)
-		if user.profile_photo_id
-		  image_tag user.profile_photo.image.url(size)
-		else
-		  image_tag "user_silhouette_thumb.png" 
-		end
-	end
-	# REDUNDANT, GET RID OF PHOTO_LINK METHOD AND ADD SIZE TO PROFILE_PHOTO METHOD
-
-	# START WITH FIGURING OUT HOW TO UNLIKE SOMETHING ON THE POST FORM
-
   
 end

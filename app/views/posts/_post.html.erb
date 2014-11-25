@@ -1,6 +1,6 @@
 <li>
   <div class="post">
-    <%= image_tag "user_silhouette_generic.png", class: "user-photo-xs" %>
+    <%= profile_photo(post.user, :thumb) %>
     
     <div class="post-info">
       <%= link_to post.user.name, post.user %>
@@ -25,7 +25,7 @@
     
     <% if post.likes.any? %>
       <div class="post-like-field">
-        <%= pluralize(post.likes.count, "Like") %>
+        <%= pluralize(post.likes.count, "like") %>
       </div>
     <% end %>
 

@@ -2,6 +2,7 @@ require 'open-uri'
 class Photo < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments, :as => :commentable, dependent: :destroy
+  has_many :likes, :as => :likable, dependent: :destroy
 
 	has_attached_file :image, :styles => { :large => "500x500", :medium => "230x315", :thumb => "75x75", :xs => "50x50" }
   

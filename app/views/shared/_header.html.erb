@@ -4,7 +4,9 @@
 	
       <div class="top-part">
       	<%= cover_photo(@user) %>
-      	<%= profile_photo(@user) %>
+        <div class="user-photo">
+      	  <%= profile_photo(@user, :medium) %>
+        </div>
       	<p class="user-name"><%= @user.name %></p>
         <span>
           <% unless @user == current_user %>

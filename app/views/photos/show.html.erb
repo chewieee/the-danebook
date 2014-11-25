@@ -38,7 +38,11 @@
   </div>
   
   <div class="col-md-12">
-    <p><%= link_to "Like", "#" %> 3 people like this.</p>
+    <% if current_user.likes?(@photo) %>
+      <%=link_to "Unlike", [@photo, current_user.unlike(@photo)], method: 'DELETE' %>
+    <% else %>
+      <%= link_to "Like", photo_likes_path(@photo), method: 'POST' %>
+    <% end %>
   </div>
 
 
