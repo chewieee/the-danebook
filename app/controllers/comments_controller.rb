@@ -21,6 +21,7 @@ class CommentsController < ApplicationController
   
   def destroy
   	@comment = Comment.find(params[:id])
+    @user = @comment.commentable.user
 
   	if @comment.destroy
   		flash[:success] = "Comment deleted."
@@ -36,6 +37,7 @@ class CommentsController < ApplicationController
 		params.require(:comment).permit(:content, :user_id)
 	end
 
+  # sorts commentable type i.e. "Photo, Post, etc"
 	def parse_klass_and_id
     klass = params[:commentable].constantize
     commentable_id = "#{klass}_id".downcase.to_sym

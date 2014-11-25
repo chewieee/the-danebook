@@ -9,7 +9,7 @@
       <ul>
         <li><%= link_to "Like", "#" %></li>
         <li>3 other people like this</li>
-        <li><%= link_to "Delete", "#", class: "comment-delete-link" %></li>
+        <li><%= link_to "Delete", [comment.commentable, comment], method: :delete, class: "comment-delete-link" %></li>
       </ul>
     </div>
   </div>
