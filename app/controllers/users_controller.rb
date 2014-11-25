@@ -34,7 +34,13 @@ class UsersController < ApplicationController
 	def update
 		@user = current_user
 
-		if @user.update(user_params)  # <<<<<
+		if params[:profile_photo_id]
+      @user.profile_photo = @user.photos.find(params[:profile_photo_id])
+    elsif params[:cover_photo_id]
+      @user.cover_photo = @user.photos.find(params[:cover_photo_id])
+    end
+
+		if @user.update_attributes(user_params)  # <<<<<
       flash[:success] = "Successfully updated your profile"
       redirect_to user_about_path(@user)
     else
@@ -56,7 +62,8 @@ class UsersController < ApplicationController
   def user_params
   	params.require(:user).permit(:first_name, :last_name, :email, :password, 
   		                           :password_confirmation, :birth_day, :birth_month,
-  		                           :birth_year, :gender, :words, :about_me, :phone)
+  		                           :birth_year, :gender, :words, :about_me, :phone,
+  		                           :profile_photo_id, :cover_photo_id)
   end
 
 end

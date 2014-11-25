@@ -3,8 +3,8 @@
 	  <header class="header">
 	
       <div class="top-part">
-      	<%= image_tag "hogwarts_small.jpg", class: "cover-photo" %>
-      	<%= image_tag "harry_potter_small.jpg", class: "user-photo" %>
+      	<%= cover_photo(@user) %>
+      	<%= profile_photo(@user) %>
       	<p class="user-name"><%= "#{@user.first_name} #{@user.last_name}" %></p>
         <span>
           <% unless @user == current_user %>
