@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_create :generate_token	
+  after_create  :send_welcome_email
 
 	before_save { self.email = email.downcase }
 
@@ -31,18 +32,6 @@ class User < ActiveRecord::Base
     Post.from_friended_users_of(self)
   end  
 
-  def generate_token
-    begin
-      self[:auth_token] = SecureRandom.urlsafe_base64
-    end while User.exists?(:auth_token => self[:auth_token])
-  end
-
-  def regenerate_auth_token
-    self.auth_token = nil
-    generate_token
-    save!
-  end
-
   def friended?(other_user)
     friendships.find_by_friended_id(other_user.id)
   end
@@ -73,6 +62,24 @@ class User < ActiveRecord::Base
     else
       where("")
     end
+  end
+
+  private
+
+   def generate_token
+    begin
+      self[:auth_token] = SecureRandom.urlsafe_base64
+    end while User.exists?(:auth_token => self[:auth_token])
+  end
+
+  def regenerate_auth_token
+    self.auth_token = nil
+    generate_token
+    save!
+  end
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver!
   end
   
 end

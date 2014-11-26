@@ -51,6 +51,7 @@ group :development do
 	gem 'better_errors', '~> 2.0.0'
 	gem 'binding_of_caller', '~> 0.7.2'
 	gem 'jazz_hands', '~> 0.5.2'
+	gem 'letter_opener', '~> 1.2.0'
 end
 
 # Bootstrap gem

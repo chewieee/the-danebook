@@ -34,7 +34,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
+  
+  # Use letter_opener gem to view emails in the browser
+  config.action_mailer.delivery_method = :letter_opener
+  
   Paperclip.options[:command_path] = "/usr/local/bin"
   
   config.paperclip_defaults = {
