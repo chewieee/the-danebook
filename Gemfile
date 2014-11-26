@@ -72,4 +72,7 @@ gem 'devise'
 # Simple forms 
 gem 'simple_form', '~> 3.0.2'
 
+# User Faker to generate fake data for seeds file
+gem 'faker', '~> 1.4.3'
+
 
