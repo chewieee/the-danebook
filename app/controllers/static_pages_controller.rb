@@ -8,6 +8,7 @@ class StaticPagesController < ApplicationController
 	  if signed_in_user?
 	    @feed_items = current_user.newsfeed
 	  end
+	  @post = Post.new
 	end
 
 	def about

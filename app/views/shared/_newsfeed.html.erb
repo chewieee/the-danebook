@@ -1,5 +1,52 @@
+<div class="col-md-4">
+  
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <%= profile_photo(current_user, :thumb) %>
+    </div>
+
+    <div class="col-md-8" %>
+      <p><%= link_to current_user.name, user_path(current_user) %></p>
+      <p><%= link_to "Edit Profile", edit_user_path(current_user) %></p>
+    </div>
+  </div>
+
+  <div class="col-md-12"%>
+    <p><strong>Recently Active</strong></p>
+  </div>
+
+  <div class="col-md-12">
+	  <% if @feed_items.any? %>
+	    <% @feed_items.each do |item| %>
+	      <%= render 'shared/user_info', item: item %>
+	    <% end %>
+	  <% end %>
+  </div>
+  
+  <div class="col-md-12">
+    <%= link_to "See All Your Friends", friended_users_user_path(current_user) %>
+  </div>
+  
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-7 col-offset-1">
+
+<%= render 'posts/post_form' %>
+
 <% if @feed_items.any? %>
   <ol class="posts">
     <%= render @feed_items %>
   </ol>
 <% end %>
+
+</div>
+
+

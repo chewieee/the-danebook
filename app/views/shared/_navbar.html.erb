@@ -19,7 +19,7 @@
 			</ul>
 			
 			<%= form_tag users_path, :method => 'GET', class: "navbar-form navbar-left" do %>
-			  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search for users by first name..." %>
+			  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search for users by first or last name..." %>
 			  <%= submit_tag "Search", class: "btn btn-primary" %>
 			<% end %>
 

@@ -9,4 +9,10 @@ class Post < ActiveRecord::Base
 
   scope :chronological, lambda { order("created_at DESC") }
   # default_scope -> { order('created_at DESC') } - "stabby lambda" syntax
+
+  def self.from_friended_users_of(user)
+    friended_user_ids = user.friended_user_ids
+    where("user_id IN (?) OR user_id = ?", friended_user_ids, user).order("created_at DESC")
+  end
+
 end

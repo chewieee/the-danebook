@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   belongs_to :cover_photo, class_name: "Photo"
 
   def newsfeed
-    Post.where("user_id =?", id)
+    Post.from_friended_users_of(self)
   end  
 
   def generate_token
@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
 
   def self.search(query)
     if query
-      where("first_name LIKE ?", "%#{query}%")
+      where("first_name LIKE ? OR last_name LIKE ?", "%#{query}%", "%#{query}%")
     else
       where("")
     end
