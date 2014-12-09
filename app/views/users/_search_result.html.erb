@@ -4,7 +4,15 @@
     <%= link_to user.name, user_path(user) %>
     <p><%= pluralize(user.friended_users.count, 'friend') %></p>
   </div>
-  <%= form_for(current_user.friendships.find_by_friended_id(user), 
-             html: { method: :delete }) do |f| %>
-  <%= f.submit "Unfriend", class: "btn btn-primary btn-unfriend" %> <% end %>
+  <% if @user.friended?(user) %>
+	  <%= form_for(current_user.friendships.find_by_friended_id(user), 
+	             html: { method: :delete }) do |f| %>
+	  <%= f.submit "Unfriend", class: "btn btn-primary btn-unfriend" %>
+	  <% end %> 
+  <% else %>
+    <%= form_for(current_user.friendships.build(friended_id: user.id)) do |f| %> 
+      <div><%= f.hidden_field :friended_id %></div>
+    <%= f.submit "Friend", class: "btn btn-large btn-primary" %>
+    <% end %>
+  <% end %>
 </div><!-- /.friend-box -->

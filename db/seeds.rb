@@ -37,4 +37,31 @@ User.create!(first_name: "Matt",
     	           birth_year: birth_year,
     	           gender: gender)
   end
-  
+
+
+# Posts
+
+users = User.order(:created_at).take(10)
+25.times do
+	content = Faker::Lorem.paragraph(3)
+	users.each { |user| user.posts.create!(content: content) }
+end
+
+
+# # Comments
+
+# users = User.all
+# posts = Post.order(:created_at).take(30)
+# 10.times do
+#   content = Faker::Lorem.sentence
+#   posts.each { |post| post.comments.build(content: content, user_id: users.shuffle)}
+# end
+
+
+# Friendships
+
+users = User.all
+user = users.first
+friends = users[2..50]
+friends.each { |friend| user.friend!(friend)}
+

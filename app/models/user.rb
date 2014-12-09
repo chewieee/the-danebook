@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   before_create :generate_token	
-  after_create  :send_welcome_email
+  # after_create  :send_welcome_email
 
 	before_save { self.email = email.downcase }
 
