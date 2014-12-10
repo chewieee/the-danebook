@@ -1,3 +1,58 @@
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Photos Page Customs
+---------------------------- */
+
+.photo {
+	text-align: center;
+	height: 250px;
+	width: 300px;
+	margin: 0 5px 20px 5px;
+	position: relative;
+}
+
+.show-photo {
+	margin-right: auto;
+}
+
+span.text-content {
+	background: rgba(0,0,0,0.5);
+  color: #fff;
+  cursor: pointer;
+  display: table;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  letf: 3px;
+  width: 98%;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+span.text-content span {
+	display: table-cell;
+  text-align: center;
+  vertical-align: center;
+}
+
+div:hover span.text-content {
+  opacity: 1;
+}
+
+.photo-links {
+	list-style: none;
+	float: right;
+}
+
+.photo-comment {
+	background-color: #fff;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 5px;
+}
+
+.photo-comment-form {
+	margin-top: 15px;
+}

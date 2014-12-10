@@ -134,7 +134,6 @@ color: #fff;
 	border-bottom: 1px solid #c8c8c8;
 }
 
-
 /* About Edit Page Customs
 ---------------------------- */
 
@@ -150,85 +149,6 @@ color: #fff;
 	padding: 0 110px 0 110px;
 	box-shadow: 3px 3px 5px 1px #ccc; 
 }
-
-
-/* Photos Page Customs
----------------------------- */
-
-.photo {
-	text-align: center;
-	height: 250px;
-	width: 300px;
-	margin: 0 5px 20px 5px;
-	position: relative;
-}
-
-.show-photo {
-	margin: 20px;
-}
-
-span.text-content {
-	background: rgba(0,0,0,0.5);
-  color: #fff;
-  cursor: pointer;
-  display: table;
-  height: 50px;
-  position: absolute;
-  bottom: 45px;
-  letf: 3px;
-  width: 98%;
-  opacity: 0;
-  transition: opacity 500ms;
-}
-
-span.text-content span {
-	display: table-cell;
-  text-align: center;
-  vertical-align: center;
-}
-
-div:hover span.text-content {
-  opacity: 1;
-}
-
-/* Friends Page Customs
----------------------------- */
-
-.friend-box {
-	position: relative;
-	margin-bottom: 30px;
-	margin-left: 55px;
-	height: 180px;
-	border: 2px solid #000;
-}
-
-.user-photo-small {
-	position: absolute;
-	top: 15px;
-	left: 15px;
-	height: 150px;
-	width: 150px;
-}
-
-.friend-info {
-	position: absolute;
-	top: 85px;
-	left: 180px;
-	font-size: 1.1em;
-}
-
-.btn-unfriend {
-	position: absolute;
-	top: 85px;
-	left: 300px;
-}
-
-.friend-btn {
-	position: absolute;
-	bottom: 20px;
-	right: 480px;
-}
-
 
 /* Timeline Page Customs
 ---------------------------- */
@@ -269,9 +189,3 @@ div:hover span.text-content {
 .right-section {
 	margin-top: 20px;
 }
-
-
-
-/* Images */
-
-

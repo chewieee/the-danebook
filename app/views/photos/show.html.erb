@@ -9,11 +9,10 @@
 
 
 <div class="container">
-  <div class="col-md-7 show-photo">
-  
-  <div class="col-md-12">
-    <%= image_tag @photo.image.url %>
-  </div>
+  <div class="col-md-7">
+    <div class="col-md-12 show-photo">
+      <%= image_tag @photo.image.url %>
+    </div>
 
   <% if @user == current_user %>
 	  <div class="col-md-12">
@@ -27,25 +26,20 @@
 </div>
 
 
-<div class="col-md-4">
-
-  <div class="col-md-2">
-    <%= image_tag "user_silhouette_generic.png", size: "50x50" %> 
+<div class="col-md-5 photo-comment">
+  <div class="col-md-3">
+    <%= profile_photo(@user, :thumb) %> 
   </div>
-  <div class="col-md-10">
-    <p><%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></p>
-    <p><%= "Uploaded on #{@photo.created_at.strftime("%B %d, %Y")}" %></p>
-  </div>
-  
-  <div class="col-md-12">
-    <% if current_user.likes?(@photo) %>
+  <div class="col-md-9">
+    <%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %>
+    <p class="soft-grey"><%= "Uploaded on #{@photo.created_at.strftime("%B %d, %Y")}" %></p>
+     <% if current_user.likes?(@photo) %>
       <%=link_to "Unlike", [@photo, current_user.unlike(@photo)], method: 'DELETE' %>
     <% else %>
       <%= link_to "Like", photo_likes_path(@photo), method: 'POST' %>
     <% end %>
   </div>
-
-
+  
   <% if @photo.comments.any? %>
     <div class="col-md-12">
       <% @photo.comments.each do |comment| %> 
@@ -55,7 +49,7 @@
   <% end %>
 
 
-  <div class="col-md-12">
+  <div class="col-md-12 photo-comment-form">
 	  <%= form_for [@photo, @photo.comments.build] do |f| %>
 	    <%= f.text_area :content, class: "form-control", rows: 3, placeholder: "Write a comment..." %>
 	    <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -65,5 +59,6 @@
 
 </div>
  
+
  
 

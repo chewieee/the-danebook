@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-4">
   <%= link_to image_tag(photo.image.url(:thumb), class: "photo"), user_photo_path(photo.user, photo) %>
   <span class="text-content"><span><%= "Uploaded #{photo.created_at.strftime("%B-%d-%Y")}" %></span></span>
 </div>

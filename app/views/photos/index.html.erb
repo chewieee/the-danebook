@@ -1,7 +1,4 @@
-      
-  <div class="container">
- 	
-    <%= render 'shared/header' %>
+<%= render 'shared/header' %>
 	
   <div class="container">
 	  <section class="sub-header">
@@ -15,11 +12,10 @@
     <% if @user.photos.any? %>
       <% @user.photos.each do |photo| %>
 
-        <%= render 'shared/photo', photo: photo %>
+        <%= render 'photo', photo: photo %>
 
       <% end %>
     <% end %>
    
-
-  </section><!-- /.container -->
-
+  </section>
+ 

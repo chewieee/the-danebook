@@ -1,9 +1,9 @@
 <div class="comment">
-  <div class="col-md-2">
-    <%= image_tag "user_silhouette_generic.png", size: "30x30", class: "photo-comment-thumb" %> 
+  <div class="col-md-3">
+    <%= profile_photo(comment.user, :xs) %> 
   </div>
 
-  <div class="col-md-10">
+  <div class="col-md-9">
     <%= link_to comment.user.name, user_path(comment.user) %>
     <%= "said on #{comment.created_at.strftime("%B %d, %Y")}" %>
   </div>
@@ -14,10 +14,6 @@
 
   <div class="col-md-12">
     <%= link_to "Delete", [comment.commentable, comment], method: :delete %>
-  </div>
-
-  <div class="col-md-12">
-    <p><%= link_to "Like", "#" %> 3 people like this</p>
   </div>
 
 </div>

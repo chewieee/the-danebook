@@ -1,3 +1,35 @@
 // Place all the styles related to the Friendships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Friends Page Customs
+---------------------------- */
+
+.friend-box {
+	position: relative;
+	margin-bottom: 30px;
+	margin-left: 55px;
+	height: 120px;
+	background-color: #fff;
+	border-radius: 5px;
+	padding-top: 15px;
+}
+
+.friend-info {
+	position: absolute;
+	top: 20px;
+	left: 100px;
+	font-size: 1.1em;
+}
+
+.btn-unfriend {
+	position: absolute;
+	top: 75px;
+	left: 290px;
+}
+
+.friend-btn {
+	position: absolute;
+	bottom: 20px;
+	right: 300px;
+}
