@@ -54,7 +54,7 @@ color: #fff;
 .header {
 	border-bottom: 1px solid #e9eaed;
 	margin-top: -20px;
-	background-color: #f6f7f8;
+	background-color: #fff;
 }
 
 .top-part {
@@ -84,7 +84,6 @@ color: #fff;
 }
 
 .tablist {
-	
 	margin-left: 250px;
 }
 
@@ -95,10 +94,11 @@ color: #fff;
 .sub-header {
 	text-align: center;
 	font-size: 2em;
-	background-color: #e9eaed;
-	border: 2px solid #000;
+	background-color: #fff;
 	margin-top: 20px;
 	margin-bottom: 30px;
+	border-radius: 5px;
+	border-bottom: 1px solid #c8c8c8;
 }
 
 .right-btn {
@@ -127,7 +127,11 @@ color: #fff;
 }
 
 .btm-part {
-	margin-top: -30px;
+	// margin-top: -30px;
+	background-color: #fff;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border-bottom: 1px solid #c8c8c8;
 }
 
 
