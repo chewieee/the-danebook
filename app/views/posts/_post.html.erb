@@ -4,7 +4,7 @@
     
     <div class="post-info">
       <%= link_to post.user.name, post.user %>
-      <p>Posted on <%= post.created_at.strftime("%m-%d-%Y") %></p>
+      <p>Posted on <%= post.created_at.strftime("%B-%d-%Y") %></p>
     </div>
     
     <p class="post-text"><%= post.content %></p>

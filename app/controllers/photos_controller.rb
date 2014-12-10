@@ -30,8 +30,8 @@ class PhotosController < ApplicationController
   end
 
   def index
-	@user = User.find(params[:user_id])
-	@photos = @user.photos
+	  @user = User.find(params[:user_id])
+	  @photos = @user.photos
   end
 
   def destroy
@@ -53,14 +53,12 @@ class PhotosController < ApplicationController
       flash[:error] = "Couldn't delete."
       redirect_to user_photos_path(@user)
     end
-  else
-    
   end
 
   private
 
   def photo_params
-	params.require(:photo).permit(:image, :url)
+	  params.require(:photo).permit(:image, :url)
   end
 
 end
