@@ -103,11 +103,7 @@ color: #fff;
 	margin: 3px 10px 0 0;
 }
 
-.friend-btn {
-	position: absolute;
-	bottom: 20px;
-	right: 480px;
-}
+
 
 /* About Page Customs
 ---------------------------- */
@@ -217,7 +213,13 @@ div:hover span.text-content {
 .btn-unfriend {
 	position: absolute;
 	top: 85px;
-	left: 330px;
+	left: 300px;
+}
+
+.friend-btn {
+	position: absolute;
+	bottom: 20px;
+	right: 480px;
 }
 
 
@@ -260,137 +262,7 @@ div:hover span.text-content {
 	margin-top: 20px;
 }
 
-.post {
-	border: 2px solid #000;
-	position: relative;
-}
 
-.posts {
-	list-style: none;
-	padding: 0;
-	li {
-		margin-bottom: 15px;
-	}
-}
-
-.post-area {
-	text-align: right;
-}
-
-.post-box {
-	margin: 30px 0 40px 0;
-}
-
-.btn-box {
-	background-color: #e9eaed;
-	border-top: 2px solid #000;
-	padding: 5px;
-}
-
-.user-photo-xs {
-	height: 75px;
-	width: 75px;
-	position: absolute;
-	top: 10px;
-	left: 10px;
-}
-
-.post-info {
-	position: absolute;
-	top: 30px;
-	left: 90px;
-}
-
-.post-links {
-	background-color: #e9eaed;
-	border-top: 2px solid #000;
-}
-
-.post-links ul {
-	margin-bottom: 0;
-	padding: 5px;
-}
-
-.post-links li{
-	list-style-type: none;
-	display: inline;
-	font-size: 1.1em;
-	margin-left: 30px;
-	margin-bottom: 0;
-}
-
-.post-text {
-	margin-top: 100px;
-	padding: 10px;
-}
-
-.post-delete-link {
-	margin-left: 320px;
-}
-
-.post-like-field {
-	padding-left: 35px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	background-color: #e9eaed;
-}
-
-/* Comment Styles */
-
-.comment {
-	position: relative;
-	background-color: #e9eaed;
-}
-
-.comment-info {
-	position: absolute;
-	left: 139px;
-}
-
-.comment-text {
-	margin-left: 90px;
-	padding: 20px 10px 0 10px;
-}
-
-.user-photo-xs-comment {
-	height: 75px;
-	width: 75px;
-	position: absolute;
-	top: 0px;
-	left: 20px;
-}
-
-.comment-links {
-	background-color: #e9eaed;
-}
-
-.comment-links ul {
-	margin-bottom: 0;
-	padding: 5px;
-}
-
-.comment-links li{
-	list-style-type: none;
-	display: inline;
-	font-size: 1.1em;
-	margin-left: 125px;
-	margin-bottom: 0;
-}
-
-.comment-delete-link {
-	margin-left: 5px;
-}
-
-.comment-form {
-  height: 150px;
-  padding-top: 20px;
-  background-color: #e9eaed;
-}
-
-.comment-btn {
-	float: right;
-	margin: 10px 20px 0 0;
-}
 
 /* Images */
 

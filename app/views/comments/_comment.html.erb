@@ -1,18 +1,18 @@
-  <div class="comment">
-    <%= profile_photo(comment.user, :xs) %>
-    <div class="comment-info">
-      <%= link_to comment.user.name, user_path(comment.user) %>
-      <span> said on <%=comment.created_at.strftime("%B-%d-%Y") %></span>
-    </div>
-    <p class="comment-text"><%= comment.content %></p>
-    <div class="comment-links">
-      <ul>
-        <li><%= link_to "Like", "#" %></li>
-        <li>3 other people like this</li>
-        <li><%= link_to "Delete", [comment.commentable, comment], method: :delete, class: "comment-delete-link" %></li>
-      </ul>
-    </div>
-  </div>
+<div class="col-md-12 comment">
+<div class="col-md-2">
+  <%= profile_photo(comment.user, :xs) %>
+</div>
+<div class="col-md-10">
+  <%= link_to comment.user.name, user_path(comment.user) %>
+  <%= comment.content %><br>
+  <span class="soft-grey"><%= comment.created_at.strftime("%B-%d-%Y") %></span>
+
+   <%= link_to "Like", "#" %>
+    3 other people like this
+    <%= link_to "Delete", [comment.commentable, comment], method: :delete, class: "comment-delete-link" %>
+  </ul>
+</div>
+</div>
 
 
      

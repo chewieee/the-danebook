@@ -1,3 +1,61 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Comment Styles */
+
+.comment {
+	// position: relative;
+	margin-bottom: 10px;
+	background-color: #f6f7f8;
+	padding: 5px;
+}
+
+.comment-info {
+	// position: absolute;
+	
+}
+
+.comment-text {
+	margin-left: 90px;
+	padding: 20px 10px 0 10px;
+}
+
+.user-photo-xs-comment {
+	height: 75px;
+	width: 75px;
+	// position: absolute;
+	top: 0px;
+	left: 20px;
+}
+
+.comment-links {
+	background-color: #fff;
+}
+
+.comment-links ul {
+	margin-bottom: 0;
+	padding: 5px;
+}
+
+.comment-links li{
+	list-style-type: none;
+	display: inline;
+	font-size: 1.1em;
+
+	margin-bottom: 0;
+}
+
+.comment-delete-link {
+	margin-left: 5px;
+}
+
+.comment-form {
+  padding-top: 20px;
+  background-color: #fff;
+}
+
+.comment-btn {
+	float: right;
+	margin: 10px 20px 0 0;
+}

@@ -1,42 +1,48 @@
-<li>
-  <div class="post">
-    <%= profile_photo(post.user, :thumb) %>
-    
-    <div class="post-info">
-      <%= link_to post.user.name, post.user %>
-      <p>Posted on <%= post.created_at.strftime("%B-%d-%Y") %></p>
+
+  <div class="col-md-12 post">
+    <div class="col-md-12">
+      <div class="col-md-2">
+        <%= profile_photo(post.user, :thumb) %>
+      </div>
+      <div class="col-md-10">
+        <%= link_to post.user.name, post.user %>
+        <p class="soft-grey">Posted on <%= post.created_at.strftime("%B-%d-%Y") %></p>
+      </div>
     </div>
-    
-    <p class="post-text"><%= post.content %></p>
-    
-    <div class="post-links">
+
+    <div class="col-md-12">
+      <p class="post-text"><%= post.content %></p>
+    </div>
+
+    <div class="col-md-12 post-links">
       <ul>
         <% if current_user.likes?(post) %>
           <li> <%=link_to "Unlike", [post, current_user.unlike(post)], method: 'DELETE' %>
         <% else %>
           <li> <%= link_to "Like", post_likes_path(post), method: 'POST' %></li>
         <% end %>
-          <li><%= link_to "Comment", "#" %></li>
           <% if @user == current_user %>
             <li><%= link_to "Delete", post, method: :delete, class: "post-delete-link", data: { confirm: "You sure?" } %></li>
           <% end %>
       </ul>
     </div>
-    
+
     <% if post.likes.any? %>
-      <div class="post-like-field">
+      <div class="col-md-12 post-like-field">
         <%= pluralize(post.likes.count, "like") %>
       </div>
     <% end %>
 
-      <% if post.comments.any? %>
-        
-          <% post.comments.each do |comment| %>
-            <%= render 'comments/comment', comment: comment %>
-       
-         <% end %>
-      <% end %>  
-      <%= render 'comments/comment_form', post: post %>
-   
+    <% if post.comments.any? %>
+      
+      <% post.comments.each do |comment| %>
+      <div class="col-md-12">
+        <%= render 'comments/comment', comment: comment %>
+      </div>
+      <% end %>
+    <% end %>
+
+    <%= render 'comments/comment_form', post: post %> 
   </div>
-</li>
+
+
