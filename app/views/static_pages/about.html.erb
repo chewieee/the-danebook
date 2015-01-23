@@ -1,5 +1,5 @@
 <%= render 'shared/header' %>
-   <div class="container">
+  <div class="container">
     <section class="sub-header">
       <span><strong>About</strong></span>
     </section>
@@ -7,49 +7,75 @@
   
   <div class="container">
     <section class="col-md-12 btm-part">
+     
       <div class="col-md-5">
-        <h3>Basic Information</h3>
-          <div class="col-md-5">
-            <ul class="about-info">
-              <li><strong>Birthday:</strong></li>
-              <li><strong>College:</strong></li>
-              <li><strong>Hometown:</strong></li>
-              <li><strong>Currently Lives:</strong></li>
-            </ul>
-          </div><!--/.col-md-6 -->
-          <div class="col-md-7">
-            <ul class="about-info">
-              <li><%= birthday(@user) %></li>
-              <li>Hogwarts College</li>
-              <li>Godrick's Hollow, England</li>
-              <li>Godrick's Hollow, England</li>
-              </ul>
-            </div><!--/.col-md-6 -->
-      <p id="space">-</p> <!-- moves down stubborn contact info section -->
-      <h3 class="contact">Contact Information</h3>
+        <div class="col-md-12">
+          <h3>Basic Information</h3>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Birthday:</strong>
+        </div>
+        <div class="col-md-8">
+          <%= birthday(@user) %>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <strong>College:</strong>
+        </div>
+        <div class="col-md-8">
+         <%= @user.college %>
+        </div>
+        <br>
+        <div class="col-md-4">
+          <strong>Hometown:</strong>
+        </div>
+        <div class="col-md-8">
+          <%= @user.hometown %>
+        </div>
+        <br>
         <div class="col-md-5">
-          <ul class="about-info">
-            <li><strong>Email:</strong></li>
-            <li><strong>Telephone:</strong></li>
-          </ul>
-        </div><!--/.col-sm-6 -->
+          <strong>Currently Lives:</strong>
+        </div>
         <div class="col-md-7">
-          <ul class="about-info">
-            <li><%= @user.email %></li>
-            <li><%= @user.phone %></li>
-          <ul>
-      </div><!--/.col-md-6 -->
-        
-    </div><!--/.col-md-5 -->
-      
+          <%= @user.currently_lives %>
+        </div>
+
+        <div class="col-md-12">
+         <h3>Contact Information</h3>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Email:</strong>
+        </div>
+        <div class="col-md-8">
+          <%= @user.email %>
+        </div>
+        <div class="col-md-4">
+          <strong>Telephone:</strong>
+        </div>
+        <div class="col-md-8">
+          <%= @user.phone %>
+        </div>
+      </div>
+
       <div class="col-md-7">
-        <h3>Words to Live By</h3>
-          <p><%= @user.words %></p>
-  
-        <h3>About Me</h3>
-        <p><%= @user.about_me %></p>
-      
-      </div><!--/.col-md-7 -->
-      <p id="space">-</p> <!-- adds bottom margin to stubborn btm-part -->
+        <div class="col-md-12">
+          <h3>Words to Live By</h3>
+        </div>
+        <div class="col-md-12">
+          <%= @user.words %>
+        </div>
+        <div class="col-md-12">
+          <h3>About Me</h3>
+        </div>
+        <div class="col-md-12">
+          <%= @user.about_me %>
+        </div>
+      </div>
     </section>
-  </div><!--/.container -->
+  </div>
+
+
+
+

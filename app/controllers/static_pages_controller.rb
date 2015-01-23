@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
 	def home
 	  @user = User.new
 	  if signed_in_user?
-	    @feed_items = current_user.newsfeed
+	    @feed_items = current_user.newsfeed.limit(15)
 	  end
 	  @post = Post.new
 	end
